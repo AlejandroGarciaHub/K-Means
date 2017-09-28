@@ -78,12 +78,12 @@ char * argv[];
     fprintf(fp_resultados,"%.16g\t %lf\t %d\n", elapsed, error, iteracion); //Imprime en el archivo
     fclose(fp_resultados);  //Se cierra el fichero
     
-    for(int i=0;i<nCentroides;i++){
-        for(int j=0;j<nFeatures;j++){
-            printf("%lf",centroidesPrincipales[i][j]);
-            printf("\n");
-        }
-    }
+//    for(int i=0;i<nCentroides;i++){
+//        for(int j=0;j<nFeatures;j++){
+//            printf("%lf",centroidesPrincipales[i][j]);
+//            printf("\n");
+//        }
+//    }
     
     return 0;
 }
