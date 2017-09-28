@@ -8,6 +8,9 @@
 
 #include "header.h" //Importa header con las funciones necesarias
 
+
+
+
 //Funcion principal
 int main(argc, argv)
 int argc;
@@ -31,6 +34,9 @@ char * argv[];
     iteracion=0;    //Se inicializa la variable que contará las iteraciones
     gettimeofday(&t0, 0);   //Se obtiene el tiempo actual a partir de esta funcion, y se almacenan los segundos y microsegundos en la variable de tiempo inicial
     
+    mejoraFlag=atoi(argv[7]);
+    iteracionMejora=atoi(argv[8]);
+    
     inicializacion(argc,argv);  //Se inicializa lo necesario para comenzar la ejecucion
     
     fp_data=fopen(argv[1],"r"); //Se abre en modo lectura el primer argumento recibido, siendo este un fichero con los datos de la muestra y se asigna a su variable reservada
@@ -48,7 +54,9 @@ char * argv[];
     do {
         asignacion(datos,centroidesPrincipales,nData,nFeatures,nCentroides); //Se re-asigna grupo a los datos segun el recalculo
         recalculo(datos, centroidesPrincipales, nData, nFeatures, nCentroides);  //Se re-calcula la posicion de los centroides con los grupos reasignados
+        
         iteracion++;    //Se incrementa la variable de iteracion tras cada ciclo
+        
     }
     while(change==1);   //Si se detecta algun cambio en el recalculo el algoritmo continua
     //Termina el algoritmo
@@ -70,6 +78,15 @@ char * argv[];
     fprintf(fp_resultados,"%.16g\t %lf\t %d\n", elapsed, error, iteracion); //Imprime en el archivo
     fclose(fp_resultados);  //Se cierra el fichero
     
+    for(int i=0;i<nCentroides;i++){
+        for(int j=0;j<nFeatures;j++){
+            printf("%lf",centroidesPrincipales[i][j]);
+            printf("\n");
+        }
+    }
+    
     return 0;
 }
+
+
 

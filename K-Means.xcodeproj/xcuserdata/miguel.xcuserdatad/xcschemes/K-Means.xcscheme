@@ -61,6 +61,12 @@
             ReferencedContainer = "container:K-Means.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "$PROJECT_DIR/K-Means/datos6x6.txt 36 2 $PROJECT_DIR/K-Means/centroides2.txt 3 $PROJECT_DIR/resultados.txt 0 10"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
